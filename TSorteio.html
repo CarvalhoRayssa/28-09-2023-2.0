@@ -1,0 +1,52 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Sorteio de Letra</title>
+        <style>
+             body {
+                font-family: Arial, sans-serif;
+                background-color: #cca0ff;
+            }
+            #letra {
+                font-size: 48px;
+                font-weight: bold;
+            }
+            #sortear {
+                font-size: 18px;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+            button {
+    background-color: #b300ff;
+    color: #000000;
+    
+}
+button:hover {
+    background-color: #004085;
+}
+        </style>
+    </head>
+    <body>
+        <center><h1>Sorteio de Letra</h1>
+        <p>Clique no botão abaixo para sortear uma letra:</p>
+        <button id="sortear" onclick="sortearLetra()">Sortear Letra</button>
+        <h2>Letra Sorteada:</h2>
+        <p id="letra"></p></center>
+    
+        <script>
+            function sortearLetra() {
+                // Lista de letras que podem ser sorteadas
+                const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                
+                // Gera um número aleatório entre 0 e o comprimento da lista de letras
+                const indice = Math.floor(Math.random() * letras.length);
+                
+                // Obtém a letra correspondente ao índice gerado
+                const letraSorteada = letras.charAt(indice);
+                
+                // Exibe a letra sorteada na página
+                document.getElementById("letra").innerText = letraSorteada;
+            }
+        </script>
+    </body>
+    </html>

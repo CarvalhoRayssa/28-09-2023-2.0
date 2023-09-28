@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorteio de Letra e Regras do Jogo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cca0ff;
+        }
+        .section {
+            text-align: center;
+            padding: 20px;
+        }
+        .section h1 {
+            font-size: 24px;
+        }
+        #letra {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        #sortear {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #b300ff;
+            color: #000000;
+        }
+        #sortear:hover {
+            background-color: #004085;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #9d00ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="section" id="sorteio-section">
+        <h1>Sorteio de Letra</h1>
+        <p>Clique no botão abaixo para sortear uma letra:</p>
+        <button id="sortear" onclick="sortearLetra()">Sortear Letra</button>
+        <h2>Letra Sorteada:</h2>
+        <p id="letra"></p>
+    </div>
+    <div class="section" id="regras-section" style="display: none;">
+        <h1>Regras do Jogo</h1>
+        <p>Bem-vindo, <span id="nomeJogador"></span>!</p>
+        <br>
+        Bom, a letra sorteada é: <span id="letraSorteadaRegras"></span>
+        <br>
+        Agora, preencha as colunas de acordo com a letra sorteada preenchendo as colunas conforme a primeira letra da palavra;
+        <h2>Colunas:</h2>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>CEP</th>
+                <th>MSÉ</th>
+                <th>MNÉ</th> 
+            </tr>
+            <tr>
+                <td><input type="text" id="nomeInput"></td>
+                <td><input type="text" id="cepInput"></td>
+                <td><input type="text" id="sograInput"></td>
+                <td><input type="text" id="namoradInput"></td> 
+            </tr>
+            <tr>
+                <th>Carro</th>
+                <th>Fruta</th>
+                <th>Cor</th>
+                <th>Verbo</th>
+            </tr>
+            <tr>
+                <td><input type="text" id="carroInput"></td>
+                <td><input type="text" id="frutaInput"></td>
+                <td><input type="text" id="corInput"></td>
+                <td><input type="text" id="verboInput"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        let letraSorteada;
+
+        function sortearLetra() {
+            // Lista de letras que podem ser sorteadas
+            const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            // Gera um número aleatório entre 0 e o comprimento da lista de letras
+            const indice = Math.floor(Math.random() * letras.length);
+
+            // Obtém a letra correspondente ao índice gerado
+            letraSorteada = letras.charAt(indice);
+
+            // Exibe a letra sorteada na página
+            document.getElementById("letra").innerText = letraSorteada;
+
+            // Mostra a seção de regras do jogo
+            document.getElementById("regras-section").style.display = "block";
+
+            // Oculta a seção de sorteio de letra
+            document.getElementById("sorteio-section").style.display = "none";
+
+            // Exibe a letra sorteada na segunda tela
+            document.getElementById("letraSorteadaRegras").innerText = letraSorteada;
+        }
+    </script>
+</body>
+</html>
